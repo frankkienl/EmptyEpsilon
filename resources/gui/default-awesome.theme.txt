@@ -7,11 +7,13 @@
 [base] {
 
     # Default font.
-    font: gui/awesome/fonts/Roboto/Roboto-Regular.ttf
+    font: gui/awesome/fonts/Roboto/Roboto_Condensed-Regular.ttf
+    # Positive offset moves the font down, negative moves it up.
+        font_offset: -2.5
 
     # Bold font. (We use the same font for bold text, for now.)
     [bold] {
-        font: gui/awesome/fonts/Roboto/Roboto-Bold.ttf
+        font: gui/awesome/fonts/Roboto/Roboto_Condensed-Bold.ttf
     }
 
     [background] {
