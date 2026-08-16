@@ -23,7 +23,7 @@ GuiCommsOverlay::GuiCommsOverlay(GuiContainer* owner)
     opening_box = new GuiPanel(this, "COMMS_OPENING_BOX");
     opening_box->hide()->setSize(800, 100)->setPosition(0, -250, sp::Alignment::BottomCenter);
     (new GuiLabel(opening_box, "COMMS_OPENING_LABEL", tr("Opening communications..."), 40))->setSize(GuiElement::GuiSizeMax, 50)->setPosition(0, 0, sp::Alignment::TopCenter);
-    opening_progress = new GuiProgressbar(opening_box, "COMMS_OPENING_PROGRESS", CommsSystem::channel_open_time, 0.0, 0.0);
+    opening_progress = new GuiProgressbar(opening_box, "COMMS_OPENING_PROGRESS", 0.0, CommsSystem::channel_open_time, 0.0);
     opening_progress->setSize(500, 40)->setPosition(50, -10, sp::Alignment::BottomLeft);
 
     // Cancel button closes the communication.
@@ -156,7 +156,7 @@ void GuiCommsOverlay::onUpdate()
     if (auto transmitter = my_spaceship.getComponent<CommsTransmitter>())
     {
         opening_box->setVisible(transmitter->state == CommsTransmitter::State::OpeningChannel);
-        opening_progress->setValue(transmitter->open_delay);
+        opening_progress->setValue(CommsSystem::channel_open_time - transmitter->open_delay);
 
         hailed_box->setVisible(transmitter->state == CommsTransmitter::State::BeingHailed || transmitter->state == CommsTransmitter::State::BeingHailedByGM);
         hailed_label->setText(tr("Hailed by {name}").format({{"name", transmitter->target_name}}));
