@@ -1,0 +1,22 @@
+# Awesome Space theme.
+# This theme overrides some colors of the default theme.
+# The `inherit: default` property is implied.
+
+### #086020 very green
+
+[base] {
+
+    # Default font.
+    font: gui/fonts/Roboto/Roboto-Regular.ttf
+
+    # Bold font. (We use the same font for bold text, for now.)
+    [bold] {
+        font: gui/fonts/Roboto/Roboto-Bold.ttf
+    }
+
+    [background] {
+        # Very dark blue, almost black.
+        color: #080814
+    }
+
+}
